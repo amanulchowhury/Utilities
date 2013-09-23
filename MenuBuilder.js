@@ -84,7 +84,7 @@ MenuBuilder.prototype.printTree = function (tree){
   return ul;
 };
 
-var builder = new MenuBuilder();
-var tree = builder.parseTree(data);
-
-document.write(builder.printTree(tree));
+// USAGE
+//var builder = new MenuBuilder();
+//var tree = builder.parseTree(data);
+//document.write(builder.printTree(tree));
