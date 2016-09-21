@@ -22,4 +22,4 @@ function recursiveArraySum(arr) {
 
 		return prev;
 	}, 0);
-} 
+}
