@@ -2,91 +2,63 @@
 * A Simple json encoder
 */
 
-var isArray = function(arr) {
+function isArray(arr) {
     return Array.isArray(arr);
-};
-
-var isObject = function(obj) {
-    return typeof(obj) === 'object';
-};
-
-var isString = function(str) {
-    return typeof(str) === 'string';
-};
-
-var isNumber = function(num) {
-    return typeof(num) === 'number';
-};
-
-var objEncoder = function(obj) {
-    if(!isObject(obj)) {
-        return obj;
-    }
-
-    let objStr = '{'; 
-    let len = Object.keys(obj).length;
-    let i = 0;
-        
-    for(let attr in obj) {
-        
-        if(typeof(obj[attr]) === 'object' || isArray(obj[attr])) {
-            objStr + attr + '"' + jsonEncoder(obj[attr]);   
-        } else {
-            objStr += '"' + attr + '":' + '"' + obj[attr] + '"';
-            if(i < len - 1) {
-                objStr += ',';
-            }
-            
-        }
-        
-        i++;
-    }
-    
-    objStr += '}'
-
-    return objStr;
-};
-
-var arrayEncoder = function(obj) {
-    let objStr = '[';
-        
-    for(let i=0; i < obj.length; i++) {
-
-        objStr += jsonEncoder(obj[i]);    
-        
-        if(i < obj.length -1) {
-            objStr += ',';
-        }
-    }
-    
-    objStr += ']';
-
-    return objStr;
 }
 
-var jsonEncoder = function(obj) {
-    let objStr = '';
+function isObject(obj) {
+    return typeof obj === 'object';
+}
+
+function isString(str) {
+    return typeof str === 'string';
+}
+
+function isNumber(num) {
+    return typeof num === 'number';
+}
+
+function isFunction(fn) {
+    return typeof fn === 'function';
+}
+
+function jsonEncoder(obj) {
+    let parts = [ ];
+
+    //don't encode if function
+    if(isFunction(obj)) {
+        return;
+    }
 
     //encode if string
     if(isString(obj)) {
-      return objStr += '"' + obj + '"';
+      return '"' + obj + '"';
     }
-    
+
     //encode if number
     if(isNumber(obj)) {
         return obj;
     }
     
-    //encode object
-    if(isObject(obj) && !isArray(obj)) {
-        objStr += objEncoder(obj);
-        
+    if(isObject(obj)) {
+        if(isArray(obj)) {
+            obj.map((item) => {
+                parts.push(jsonEncoder(item));
+            })
+        } else {
+            Object.keys(obj)
+                .filter((item) => {
+                    return !isFunction(obj[item]);
+                })
+                .map((key) => {
+                    parts.push('"' + key + '":' + jsonEncoder(obj[key]));
+                });
+        }
     }
-    
-    //encode array
+
     if(isArray(obj)) {
-        objStr += arrayEncoder(obj);
+        return '[' + parts.join(',') + ']';
     }
-    
-    return objStr;
-};
+
+    return '{' + parts.join(',') + '}';
+}
