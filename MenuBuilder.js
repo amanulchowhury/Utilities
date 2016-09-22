@@ -35,55 +35,55 @@
 // ];
 // ***********************************
 
-MenuBuilder = function(){
-  this.tree = {
-        name: 'root',
-        id: null,
-        children: []
-    };
+MenuBuilder = function () {
+	this.tree = {
+		name: 'root',
+		id: null,
+		children: []
+	};
 };
 
-MenuBuilder.prototype.compareNodes = function(firstObj, secondObj){
-  return firstObj.ordinal - secondObj.ordinal;
+MenuBuilder.prototype.compareNodes = function (firstObj, secondObj) {
+	return firstObj.ordinal - secondObj.ordinal;
 };
 
-MenuBuilder.prototype.parseTree = function(data){
-  return this.buildTree.call(this, data, this.tree);
+MenuBuilder.prototype.parseTree = function (data) {
+	return this.buildTree.call(this, data, this.tree);
 };
 
-MenuBuilder.prototype.buildTree = function(data, tree){
-  var i = 0;
-  if(Object.prototype.toString.call(data) === '[object Array]' && !data.length) { 
-  	return; 
-  }
+MenuBuilder.prototype.buildTree = function (data, tree) {
+	var i = 0;
+	if (Object.prototype.toString.call(data) === '[object Array]' && !data.length) {
+		return;
+	}
 
-  if(!tree.children){
-    tree.children = [];
-  }
-  
-  while(i < data.length){
-      if(data[i].parentId === tree._id){
-  			tree.children.push(this.buildTree(data, data[i]));
-      }
+	if (!tree.children) {
+		tree.children = [];
+	}
 
-      i++;
-  }
-  if(tree.children.length){
-    tree.children.sort(this.compareNodes);
-  }
+	while (i < data.length) {
+		if (data[i].parentId === tree._id) {
+			tree.children.push(this.buildTree(data, data[i]));
+		}
 
-  return tree;
+		i++;
+	}
+	if (tree.children.length) {
+		tree.children.sort(this.compareNodes);
+	}
+
+	return tree;
 };
 
-MenuBuilder.prototype.printTree = function (tree){
-  var ul = '<ul>';
-  for(var i = 0; i < tree.children.length; i++){
-    ul += '<li>' + tree.children[i].name + this.printTree.call(this, tree.children[i]);
-    ul += '</li>';
-  }
+MenuBuilder.prototype.printTree = function (tree) {
+	var ul = '<ul>';
+	for (var i = 0; i < tree.children.length; i++) {
+		ul += '<li>' + tree.children[i].name + this.printTree.call(this, tree.children[i]);
+		ul += '</li>';
+	}
 
-  ul += '</ul>';
-  return ul;
+	ul += '</ul>';
+	return ul;
 };
 
 /*********** Usage ***********/

@@ -1,9 +1,9 @@
 /*
-* implementation of function bind.
-*/
-let myBind = function(context) {
+ * implementation of function bind.
+ */
+function myBind(context) {
 	let that = this;
-	return function() {
+	return function () {
 		return that.apply(context, arguments);
 	}
 }
