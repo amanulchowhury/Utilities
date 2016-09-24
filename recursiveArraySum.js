@@ -13,7 +13,7 @@ function recursiveArraySum(arr) {
 
 	return arr.reduce((prev, current) => {
 		if (Array.isArray(current)) {
-			prev += arrSum(current);
+			prev += recursiveArraySum(current);
 		}
 
 		if (Math.round(current) === current) {
