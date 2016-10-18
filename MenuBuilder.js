@@ -35,6 +35,10 @@
 // ];
 // ***********************************
 
+/**
+ * MenuBuilder constructor
+ * @constructor
+ */
 MenuBuilder = function () {
 	this.tree = {
 		name: 'root',
@@ -43,10 +47,21 @@ MenuBuilder = function () {
 	};
 };
 
+/**
+ * Compares two given nodes based on ordinal.
+ * @param firstObj First node
+ * @param secondObj Second node.
+ * @returns {number} Difference between ordinals
+ */
 MenuBuilder.prototype.compareNodes = function (firstObj, secondObj) {
 	return firstObj.ordinal - secondObj.ordinal;
 };
 
+/**
+ * Parses the data to build a tree.
+ * @param data
+ * @returns {*}
+ */
 MenuBuilder.prototype.parseTree = function (data) {
 	return this.buildTree.call(this, data, this.tree);
 };
@@ -75,6 +90,11 @@ MenuBuilder.prototype.buildTree = function (data, tree) {
 	return tree;
 };
 
+/**
+ * Prints the tree.
+ * @param tree
+ * @returns {string}
+ */
 MenuBuilder.prototype.printTree = function (tree) {
 	var ul = '<ul>';
 	for (var i = 0; i < tree.children.length; i++) {

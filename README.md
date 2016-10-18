@@ -1,19 +1,26 @@
 Utilities
 =========
 
-####Utility function collection
+#####Utility function collection
 
 + bindThis
     + Simple implementation of lexical bind
 + json-encoder
-    + encodes JavaScript objects to JSON
+    + Encodes JavaScript objects to JSON
 + menuBuilder
     + Builds a menu from adjacency list.
 + recursiveArraySum
-    + recursive function to add list of number including nested lists.
+    + Recursive function to add list of number including nested lists.
 + graph
     + Use a graph to find duplicate records matched on the basis of multiple keys.
 + mergeSort
-    + new array
-    + in place
+    + Implementation of Merge Sort which returns a new sorted array
+    + Implementation of Merge Sort which does in-place sorted array
 + bubbleSort
+    + Implementation of Bubble Sort Algorithm
++ selectionSort
+    + Implementation of Selection Sort Algorithm
++ insertionSort
+    + Implementation of Insertion Sort Algorithm
++ quickSort
+    + Implementation of Quick Sort Algorithm    

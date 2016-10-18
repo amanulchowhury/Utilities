@@ -1,0 +1,26 @@
+{
+  "name": "utilities_and_algorithms",
+  "version": "1.0.0",
+  "description": "Utilities",
+  "main": "bindThis.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanulchowhury/Utilities.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amanulchowhury/Utilities/issues"
+  },
+  "homepage": "https://github.com/amanulchowhury/Utilities#readme",
+  "devDependencies": {
+    "jest-cli": "16.0.1"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageFormats": ["json", "html"]
+  }
+}
