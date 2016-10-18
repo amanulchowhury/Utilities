@@ -15,10 +15,6 @@ class Graph {
     }
 
     addEdge(vertex1, vertex2) {
-        if(vertex1 === vertex2) {
-            return;
-        }
-
         if(!this.edges[vertex1].includes(vertex2)) {
             this.edges[vertex1].push(vertex2);
         }
@@ -78,7 +74,7 @@ function createGraph(data) {
 
 function createConnections(graph, data) {
     for(let i = 0; i < data.length; i++){
-        for(let j = 0; j < data.length; j++) {
+        for(let j = i + 1; j < data.length; j++) { // don't need to go through the last ones.
             if(data[i].email === data[j].email || data[i].phone === data[j].phone) {
                 graph.addEdge(data[i].id, data[j].id);
             }
@@ -109,10 +105,12 @@ function findDupConnections(graph) {
 
 let data = [
     {name: 'jo', email: 'mu23n@hotmail.com', phone: '5712260246', id: 1},
+		{name: 'johanna1', email: 'mu23n1@hotmail.com', phone: '5712232246', id: 5},
     {name: 'munna', email: 'mu23nster@hotmail.com', phone: '5712260220', id: 2},
+		{name: 'johanna1', email: 'mu23n2@hotmail.com', phone: '5712232232', id: 6},
     {name: 'amanul', email: 'mu23n@hotmail.com', phone: '5712260220', id: 3},
     {name: 'johanna', email: 'mu23n@hotmail.com', phone: '5712261246', id: 4},
-    {name: 'johanna1', email: 'mu23n1@hotmail.com', phone: '5712232246', id: 5}
+		{name: 'johanna1', email: 'mu23n3@hotmail.com', phone: '5712232232', id: 7}
 ];
 
 
