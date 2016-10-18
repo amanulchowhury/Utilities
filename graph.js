@@ -50,11 +50,14 @@ class Graph {
     }
 
     getEdges(id) {
-        let list = [id];
+        let list = [];
 
-        if(this.edges[id]) {
-            list = list.concat(this.edges[id]);
-        }
+				if(!this.edges[id] || !this.edges[id].length) {
+					return null;
+				}
+
+				list = list.concat(this.edges[id]);
+				list.unshift(id);
 
         return list;
     }
@@ -101,7 +104,6 @@ function findDupConnections(graph) {
 
     return connections;
 }
-
 
 let data = [
     {name: 'jo', email: 'mu23n@hotmail.com', phone: '5712260246', id: 1},
