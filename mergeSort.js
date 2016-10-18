@@ -2,6 +2,12 @@
  * Created by amanulchowdhury.
  */
 
+/**
+ * Merge two arrays
+ * @param left The left array
+ * @param right The right array
+ * @returns {Array} The merged array
+ */
 function merge(left, right) {
 	let result = [],
 		il = 0, ir = 0;
@@ -17,7 +23,15 @@ function merge(left, right) {
 	return result.concat(left.slice(il)).concat(right.slice(ir));
 }
 
+/**
+ * Merge Sort Class
+ */
 class MergeSort {
+	/**
+	 * Merge Sort implementation
+	 * @param arr
+	 * @returns {*}
+	 */
 	sort(arr) {
 		if(arr.length < 2) {
 			return arr;

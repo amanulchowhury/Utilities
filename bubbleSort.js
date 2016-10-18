@@ -17,10 +17,18 @@ const swap = (items, firstIdx, secondIdx) => {
 };
 
 /**
- * buble sort implementation
- * @param {Array} items
- * @returns {Array}
+ * Bubble sort implementation
+ * @param {Array} array of items to sort
+ * @returns {void}
  */
 const bubleSort = (items) => {
+	let len = items.length;
 
+	for(let i = 0; i < len; i++) {
+		for(let j = 0; j < len - i; j++) {
+			if(items[j] > items[j + 1]) {
+				swap(items, j, j+1);
+			}
+		}
+	}
 };

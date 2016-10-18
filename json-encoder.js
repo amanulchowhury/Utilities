@@ -2,26 +2,57 @@
  * A Simple json encoder
  */
 
+/**
+ * Checks if value passed is an Array
+ * @param arr
+ * @returns {boolean}
+ */
 function isArray(arr) {
 	return Array.isArray(arr);
 }
 
+/**
+ * Checks if value passed is an Object
+ * @param obj
+ * @returns {boolean}
+ */
 function isObject(obj) {
 	return typeof obj === 'object';
 }
 
+/**
+ * Checks if value passed is a String
+ * @param str
+ * @returns {boolean}
+ */
 function isString(str) {
 	return typeof str === 'string';
 }
 
+/**
+ * Checks if value passed is a Number
+ * @param num
+ * @returns {boolean}
+ */
 function isNumber(num) {
 	return typeof num === 'number';
 }
 
+/**
+ * Checks if value passed is a Function.
+ * @param fn
+ * @returns {boolean}
+ */
 function isFunction(fn) {
 	return typeof fn === 'function';
 }
 
+
+/**
+ * Encodes passed value to JSON
+ * @param obj
+ * @returns {*}
+ */
 function jsonEncoder(obj) {
 	let parts = [];
 

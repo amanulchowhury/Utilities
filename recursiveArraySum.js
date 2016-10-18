@@ -1,6 +1,10 @@
 // input [ 1, 2, 3, [3, 4], 'a', 'b', 1 ]
 
-
+/**
+ * Finds sum of numbers from a nested arrray recursively
+ * @param arr The input Array
+ * @returns {Number}
+ */
 function recursiveArraySum(arr) {
 	let sum = 0;
 	if (Math.round(arr) === arr) {
