@@ -2,7 +2,7 @@
  * Created by amanulchowdhury.
  */
 
-const sorter = require('../quickSort');
+let sorter = require('../../sorting/bubbleSort');
 
 test('sorts an array', () => {
 	let unsorted = [5,7,1,2,10], sorted = [1,2,5,7,10];

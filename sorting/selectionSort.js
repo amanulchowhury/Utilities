@@ -46,3 +46,6 @@ const selectionSort = (items) => {
 
 	return items;
 };
+
+module.exports = selectionSort;
+

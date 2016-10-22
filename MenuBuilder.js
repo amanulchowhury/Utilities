@@ -106,6 +106,8 @@ MenuBuilder.prototype.printTree = function (tree) {
 	return ul;
 };
 
+module.exports = MenuBuilder;
+
 /*********** Usage ***********/
 // var builder = new MenuBuilder();
 // var tree = builder.parseTree(data);

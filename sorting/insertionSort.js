@@ -26,3 +26,5 @@ const insertionSort = (items) => {
 
 	return items;
 };
+
+module.exports = insertionSort;

@@ -93,3 +93,5 @@ function jsonEncoder(obj) {
 
 	return '{' + parts.join(',') + '}';
 }
+
+module.exports = jsonEncoder;

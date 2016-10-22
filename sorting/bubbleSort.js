@@ -19,7 +19,7 @@ const swap = (items, firstIdx, secondIdx) => {
 /**
  * Bubble sort implementation
  * @param {Array} array of items to sort
- * @returns {void}
+ * @returns {Array} the sorted array.
  */
 const bubleSort = (items) => {
 	let len = items.length;
@@ -31,4 +31,8 @@ const bubleSort = (items) => {
 			}
 		}
 	}
+
+	return items;
 };
+
+module.exports = bubleSort;

@@ -5,14 +5,14 @@
  * @param arr The input Array
  * @returns {Number}
  */
-function recursiveArraySum(arr) {
+module.exports = function recursiveArraySum(arr) {
 	let sum = 0;
 	if (Math.round(arr) === arr) {
 		return arr;
 	}
 
 	if (!Array.isArray(arr)) {
-		throw Error('should be a number or an array');
+		throw new Error('should be a number or an array');
 	}
 
 	return arr.reduce((prev, current) => {
