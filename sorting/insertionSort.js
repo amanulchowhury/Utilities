@@ -16,7 +16,7 @@ const insertionSort = (items) => {
 		let value = items[i];
 
 		//check behind if there is any value greater
-		for(j = i - 1; i > -1 && items[j] > value; j--) {
+		for(j = i - 1; j > -1 && items[j] > value; j--) {
 			items[j + 1] = items[j];
 		}
 
