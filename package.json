@@ -17,12 +17,19 @@
   },
   "homepage": "https://github.com/amanulchowhury/Utilities#readme",
   "devDependencies": {
-    "jest-cli": "16.0.1"
+    "jest": "19.0.2",
+    "jest-cli": "19.0.2"
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["html", "text"],
-    "notify": true,
+    "coverageReporters": [
+      "html",
+      "text",
+      "text-summary"
+    ],
+    "verbose": true,
+    "testEnvironment": "node",
+    "notify": false,
     "coverageThreshold": {
       "global": {
         "branches": 80,
