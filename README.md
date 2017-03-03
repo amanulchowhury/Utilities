@@ -24,3 +24,5 @@ Utilities
     + Implementation of Insertion Sort Algorithm
 + quickSort
     + Implementation of Quick Sort Algorithm    
++ fibonacci
+    + Iterative and recursive implementation to get fibonacci number for given index.
