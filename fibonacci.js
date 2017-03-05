@@ -1,3 +1,7 @@
+'use strict';
+
+let memoize = require('./memoize.js');
+
 const fibonacciIter = (index) => {
 	if(index < 1) {
 		return 0;
@@ -19,12 +23,8 @@ const fibonacciIter = (index) => {
 };
 
 const fibonacciRecursive = (index) => {
-	if(index === 0) {
-		return 0;
-	}
-
-	if(index === 1) {
-		return 1;
+	if(index === 0 || index === 1) {
+		return index;
 	}
 
 	return fibonacciRecursive(index - 1) + fibonacciRecursive(index - 2);
@@ -33,7 +33,7 @@ const fibonacciRecursive = (index) => {
 class Fibonacci {
 	constructor() {
 		this.iterative = fibonacciIter;
-		this.recursive = fibonacciRecursive;
+		this.recursive = memoize(fibonacciRecursive);
 	}
 }
 
