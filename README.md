@@ -1,7 +1,7 @@
 Utilities
 =========
 
-#####Utility function collection
+#### Utility function collection
 
 + bindThis
     + Simple implementation of lexical bind
