@@ -32,3 +32,4 @@ Utilities
     + In-order traversal
     + Post-order traversal
     + Pre-order traversal
++ Binary search to return minimum with ability to handle rotated list
