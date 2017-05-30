@@ -28,3 +28,7 @@ Utilities
     + Iterative and recursive implementation to get fibonacci number for given index.
 + memoize
     + Memoizes results of returned value of a memoized function
++ Tree
+    + In-order traversal
+    + Post-order traversal
+    + Pre-order traversal
