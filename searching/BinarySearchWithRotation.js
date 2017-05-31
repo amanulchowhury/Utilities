@@ -7,6 +7,10 @@
 
 const search = (arr) => {
 	"use strict";
+	if(!Array.isArray(arr) && isNaN(arr)){
+		throw Error('input has to be a number or an array of numbers');
+	}
+
 	if(!Array.isArray(arr) && !isNaN(arr)){
 		return arr;
 	}
@@ -25,7 +29,7 @@ const search = (arr) => {
 	if(arr[0] > arr[partitionKey]) {
 		return search(arr.slice(0, partitionKey + 1));
 	} else {
-		return search(arr.slice(partitionKey + 1, arr.length));
+		return search(arr.slice(partitionKey + 1));
 	}
 };
 

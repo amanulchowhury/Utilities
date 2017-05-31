@@ -11,12 +11,12 @@ const insertionSort = (items) => {
 	let len = items.length,
 		i, j;
 
-	for(i = 0; i < len; i++) {
+	for(i = 1; i < len; i++) {
 		//store this value
 		let value = items[i];
 
 		//check behind if there is any value greater
-		for(j = i - 1; j > -1 && items[j] > value; j--) {
+		for(j = i - 1; j >= 0 && items[j] > value; j--) {
 			items[j + 1] = items[j];
 		}
 
