@@ -32,5 +32,6 @@ Utilities
     + In-order traversal
     + Post-order traversal
     + Pre-order traversal
-+ Unique String using set
-    +Binary search to return minimum with ability to handle rotated list
++ Binary search to return minimum with ability to handle rotated list
++ Unique Strings
+    + Find if string is unique using a Set 
