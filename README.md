@@ -35,3 +35,4 @@ Utilities
 + Binary search to return minimum with ability to handle rotated list
 + Unique Strings
     + Find if string is unique using a Set 
++ Primality checker
