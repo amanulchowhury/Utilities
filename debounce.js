@@ -1,15 +1,32 @@
 let timeoutHandle = null;
 
-const debounce = (callback, timeout) => {
-	// return a function that with a timeout
-	// clear any timeout that already there.
+/**
+ * @description Sets a function to run only once with a delay
+ * @param {Function} fn function to be debounced 
+ * @param {Number} timeout delay in milliseconds 
+ */
+const debounce = (fn, timeout = 0) => {
+	// check whether fn is a function
+	if(!fn || typeof fn !== 'function') {
+		throw Error('fn needs to be a function');
+	}
+
+	// check whether timeout is a number
+	if(isNaN(timeout)) {
+		throw Error('timeout needs to be a number');
+	}
+
+	// return a function that invokes fn with a timeout
+	// and takes all the arguments passed
 	return (...args) => {
+		// clear any timeout that already there.
 		if(timeoutHandle) {
-			window.clearTimeout(timeoutHandle);
+			clearTimeout(timeoutHandle);
 		}
 		
+		// set timeout for fn with the passed in timeout
 		timeoutHandle = setTimeout(()=> {
-			callback(...args);
+			fn(...args);
 		} , timeout);	
 	}
 }
