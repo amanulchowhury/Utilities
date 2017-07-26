@@ -2,8 +2,7 @@ const memoize = (func) => {
 	let memo = {},
 		slice = Array.prototype.slice;
 
-	return function() {
-		let args = slice.call(arguments);
+	return (...args) => {
 
 		if(args in memo) {
 				return memo[args];
