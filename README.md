@@ -37,3 +37,5 @@ Utilities
     + Find if string is unique using a Set 
 + Primality checker
 + Eratosthenes Sieve to generate prime numbers
++ Debounce
+    + Debounce a function to run only once and after a delay
