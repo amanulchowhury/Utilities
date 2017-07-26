@@ -6,24 +6,24 @@
  * @returns {Number}
  */
 module.exports = function recursiveArraySum(arr) {
-	let sum = 0;
-	if (Math.round(arr) === arr) {
-		return arr;
-	}
+  let sum = 0;
+  if (Math.round(arr) === arr) {
+    return arr;
+  }
 
-	if (!Array.isArray(arr)) {
-		throw new Error('should be a number or an array');
-	}
+  if (!Array.isArray(arr)) {
+    throw new Error("should be a number or an array");
+  }
 
-	return arr.reduce((prev, current) => {
-		if (Array.isArray(current)) {
-			prev += recursiveArraySum(current);
-		}
+  return arr.reduce((prev, current) => {
+    if (Array.isArray(current)) {
+      prev += recursiveArraySum(current);
+    }
 
-		if (Math.round(current) === current) {
-			prev += current;
-		}
+    if (Math.round(current) === current) {
+      prev += current;
+    }
 
-		return prev;
-	}, 0);
-}
+    return prev;
+  }, 0);
+};

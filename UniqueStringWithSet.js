@@ -2,18 +2,18 @@
  * Created by amanulchowdhury.
  */
 
-const isUnique = (str) => {
-	/*
+const isUnique = str => {
+  /*
 	 * Return true/false if a string is unique or not.
 	 * Uniqueness means all of the letters in the string are not repeated
 	 */
-	let uniqueSet = new Set();
+  let uniqueSet = new Set();
 
-	for(let i = 0; i < str.length; i++) {
-		uniqueSet.add(str[i].toLowerCase());
-	}
+  for (let i = 0; i < str.length; i++) {
+    uniqueSet.add(str[i].toLowerCase());
+  }
 
-	return uniqueSet.size === str.length;
+  return uniqueSet.size === str.length;
 };
 
 module.exports = isUnique;

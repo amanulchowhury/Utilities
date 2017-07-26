@@ -9,19 +9,18 @@
  * answer [2, 3]
  */
 
+function twoSum(input, target) {
+  let hash = {};
 
-function twoSum (input, target) {
-	let hash = {};
+  for (let i = 0; i < input.length; i++) {
+    let complement = target - input[i];
 
-	for(let i = 0; i < input.length; i++) {
-		let complement = target - input[i];
+    if (complement in hash) {
+      return [hash[complement], i];
+    }
 
-		if(complement in hash) {
-			return [hash[complement], i];
-		}
-
-		hash[input[i]] = i;
-	}
+    hash[input[i]] = i;
+  }
 }
 
 module.exports = twoSum;

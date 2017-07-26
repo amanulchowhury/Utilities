@@ -4,7 +4,14 @@
   "description": "Utilities",
   "main": "bindThis.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -17,8 +24,14 @@
   },
   "homepage": "https://github.com/amanulchowhury/Utilities#readme",
   "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-prettier": "^2.1.2",
+    "husky": "^0.14.3",
     "jest": "19.0.2",
-    "jest-cli": "19.0.2"
+    "jest-cli": "19.0.2",
+    "lint-staged": "^4.0.2",
+    "prettier": "^1.5.3"
   },
   "jest": {
     "collectCoverage": true,

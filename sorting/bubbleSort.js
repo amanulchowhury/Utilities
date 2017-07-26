@@ -10,10 +10,10 @@
  * @returns {void}
  */
 const swap = (items, firstIdx, secondIdx) => {
-	let temp = items[firstIdx];
+  let temp = items[firstIdx];
 
-	items[firstIdx] = items[secondIdx];
-	items[secondIdx] = temp;
+  items[firstIdx] = items[secondIdx];
+  items[secondIdx] = temp;
 };
 
 /**
@@ -21,18 +21,18 @@ const swap = (items, firstIdx, secondIdx) => {
  * @param {Array} array of items to sort
  * @returns {Array} the sorted array.
  */
-const bubleSort = (items) => {
-	let len = items.length;
+const bubleSort = items => {
+  let len = items.length;
 
-	for(let i = 0; i < len; i++) {
-		for(let j = 0; j < len - i; j++) {
-			if(items[j] > items[j + 1]) {
-				swap(items, j, j+1);
-			}
-		}
-	}
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len - i; j++) {
+      if (items[j] > items[j + 1]) {
+        swap(items, j, j + 1);
+      }
+    }
+  }
 
-	return items;
+  return items;
 };
 
 module.exports = bubleSort;

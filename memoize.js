@@ -1,16 +1,14 @@
-const memoize = (func) => {
-	let memo = {},
-		slice = Array.prototype.slice;
+const memoize = func => {
+  let memo = {},
+    slice = Array.prototype.slice;
 
-	return (...args) => {
+  return (...args) => {
+    if (args in memo) {
+      return memo[args];
+    }
 
-		if(args in memo) {
-				return memo[args];
-		}
-
-		return (memo[args] = func.apply(this, args));
-	};
+    return (memo[args] = func.apply(this, args));
+  };
 };
-
 
 module.exports = memoize;

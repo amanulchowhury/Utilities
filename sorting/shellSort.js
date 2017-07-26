@@ -10,10 +10,10 @@
  * @returns {void}
  */
 const swap = (items, firstIdx, secondIdx) => {
-	let temp = items[firstIdx];
+  let temp = items[firstIdx];
 
-	items[firstIdx] = items[secondIdx];
-	items[secondIdx] = temp;
+  items[firstIdx] = items[secondIdx];
+  items[secondIdx] = temp;
 };
 
 /**
@@ -21,28 +21,29 @@ const swap = (items, firstIdx, secondIdx) => {
  * @param arr
  * @returns [] arr
  */
-const shellSort = (arr) => {
-	let len = arr.length, h = 1;
+const shellSort = arr => {
+  let len = arr.length,
+    h = 1;
 
-	while(h < Math.round(len/3)) {
-		h = (3 * h) + 1;
-	}
+  while (h < Math.round(len / 3)) {
+    h = 3 * h + 1;
+  }
 
-	console.log('h-sorter is ', h);
-	console.log('starting --- ', arr);
+  console.log("h-sorter is ", h);
+  console.log("starting --- ", arr);
 
-	while(h >= 1) {
-		for(let i = h; i < len; i++) {
-			for(let j = i; j >= h && arr[j] < arr[j - h]; j -= h) {
-				swap(arr, j, j - h);
-				console.log('after swap ---- ', arr);
-			}
-		}
+  while (h >= 1) {
+    for (let i = h; i < len; i++) {
+      for (let j = i; j >= h && arr[j] < arr[j - h]; j -= h) {
+        swap(arr, j, j - h);
+        console.log("after swap ---- ", arr);
+      }
+    }
 
-		h = Math.round(h / 3);
-	}
+    h = Math.round(h / 3);
+  }
 
-	return arr;
+  return arr;
 };
 
 module.exports = shellSort;

@@ -9,11 +9,11 @@
  * @returns Boolean
  */
 const intersectRect = (r1, r2) => {
-	//return ! of intersection not possible
-	return !(
-			r2[0][0] > r1[2][0] || //r2.left > r1.right
-			r2[1][1] > r1[3][1] || //r2.top > r1.bottom
-			r2[2][0] < r1[0][0] || //r2.right < r1.left
-			r2[3][1] < r1[0][1] 	 //r2.bottom < r1.top
-		);
+  //return ! of intersection not possible
+  return !(
+    r2[0][0] > r1[2][0] || //r2.left > r1.right
+    r2[1][1] > r1[3][1] || //r2.top > r1.bottom
+    r2[2][0] < r1[0][0] || //r2.right < r1.left
+    r2[3][1] < r1[0][1]
+  ); //r2.bottom < r1.top
 };

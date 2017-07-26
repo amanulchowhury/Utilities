@@ -10,10 +10,10 @@
  * @returns {void}
  */
 const swap = (items, firstIdx, secondIdx) => {
-	let temp = items[firstIdx];
+  let temp = items[firstIdx];
 
-	items[firstIdx] = items[secondIdx];
-	items[secondIdx] = temp;
+  items[firstIdx] = items[secondIdx];
+  items[secondIdx] = temp;
 };
 
 /**
@@ -24,27 +24,27 @@ const swap = (items, firstIdx, secondIdx) => {
  * @returns {Number} index
  */
 const partition = (items, left, right) => {
-	let pivot = items[Math.floor((left + right) / 2)],
-		i = left,
-		j = right;
+  let pivot = items[Math.floor((left + right) / 2)],
+    i = left,
+    j = right;
 
-	while(i <= j) {
-		while(items[i] < pivot) {
-			i++;
-		}
+  while (i <= j) {
+    while (items[i] < pivot) {
+      i++;
+    }
 
-		while(items[j] > pivot) {
-			j--;
-		}
+    while (items[j] > pivot) {
+      j--;
+    }
 
-		if(i <= j) {
-			swap(items, i, j);
-			i++;
-			j--;
-		}
-	}
+    if (i <= j) {
+      swap(items, i, j);
+      i++;
+      j--;
+    }
+  }
 
-	return i;
+  return i;
 };
 
 /**
@@ -55,25 +55,24 @@ const partition = (items, left, right) => {
  * @returns {Array} the sorted array
  */
 const quickSort = (items, left, right) => {
-	let index;
+  let index;
 
-	left = left || 0;
-	right = right || (items.length - 1);
+  left = left || 0;
+  right = right || items.length - 1;
 
-	if(items.length > 1) {
-		index = partition(items, left, right);
+  if (items.length > 1) {
+    index = partition(items, left, right);
 
-		if(left < index - 1) {
-			quickSort(items, left, index - 1);
-		}
+    if (left < index - 1) {
+      quickSort(items, left, index - 1);
+    }
 
-		if(index < right) {
-			quickSort(items, index, right);
-		}
-	}
+    if (index < right) {
+      quickSort(items, index, right);
+    }
+  }
 
-	return items;
+  return items;
 };
-
 
 module.exports = quickSort;
