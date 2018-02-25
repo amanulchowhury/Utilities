@@ -31,7 +31,7 @@ class DoublyLinkedList {
       position = this.length;
     }
 
-    if (!list.length) {
+    if (!this.length) {
       newNode.next = currentNode;
       this.head = newNode;
       this.tail = newNode;
