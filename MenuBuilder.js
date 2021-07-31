@@ -101,39 +101,39 @@ class Tree {
 module.exports = Tree;
 
 /*********** Usage ***********/
-var data = [
-  {
-      "name":"b1",
-      "_id":"b1_id",
-      "ordinal": 1
-   },
-   {
-      "name":"a1",
-      "_id":"a1_id",
-      "ordinal": 0
-   },
-   {
-      "name":"a2",
-      "parentId":"a1_id",
-      "_id":"a2_id",
-   },
-   {
-      "name":"a3",
-      "parentId":"a2_id",
-      "_id":"a3_id",
-   },
-   {
-      "name":"b2",
-      "parentId":"b1_id",
-      "_id":"b2_id",
-      "ordinal": 1
-   },
-   {
-      "name":"b3",
-      "parentId":"b1_id",
-      "_id":"b3_id",
-      "ordinal": 0
-   }
-];
-var builder = new Tree(data);
-document.write(builder.printTree());
+// var data = [
+//   {
+//       "name":"b1",
+//       "_id":"b1_id",
+//       "ordinal": 1
+//    },
+//    {
+//       "name":"a1",
+//       "_id":"a1_id",
+//       "ordinal": 0
+//    },
+//    {
+//       "name":"a2",
+//       "parentId":"a1_id",
+//       "_id":"a2_id",
+//    },
+//    {
+//       "name":"a3",
+//       "parentId":"a2_id",
+//       "_id":"a3_id",
+//    },
+//    {
+//       "name":"b2",
+//       "parentId":"b1_id",
+//       "_id":"b2_id",
+//       "ordinal": 1
+//    },
+//    {
+//       "name":"b3",
+//       "parentId":"b1_id",
+//       "_id":"b3_id",
+//       "ordinal": 0
+//    }
+// ];
+// var builder = new Tree(data);
+// document.write(builder.printTree());
