@@ -1,40 +1,3 @@
-// ********** Sample Input ***********
-// var data = [
-//   {
-//       "name":"b1",
-//       "_id":"b1_id",
-//       "ordinal": 1
-//    },
-//    {
-//       "name":"a1",
-//       "_id":"a1_id",
-//       "ordinal": 0
-//    },
-//    {
-//       "name":"a2",
-//       "parentId":"a1_id",
-//       "_id":"a2_id",
-//    },
-//    {
-//       "name":"a3",
-//       "parentId":"a2_id",
-//       "_id":"a3_id",
-//    },
-//    {
-//       "name":"b2",
-//       "parentId":"b1_id",
-//       "_id":"b2_id",
-//       "ordinal": 1
-//    },
-//    {
-//       "name":"b3",
-//       "parentId":"b1_id",
-//       "_id":"b3_id",
-//       "ordinal": 0
-//    }
-// ];
-// ***********************************
-
 /**
  * Prints the root to nav menu
  * @param tree
@@ -55,11 +18,11 @@ const printTree = tree => {
  * Class to represent a root node.
  */
 class Node {
-  constructor() {
-    this.name = "";
-    this.id = null;
+  constructor(id = null, name = '', ordinal = 0) {
+    this.name = name;
+    this.id = id;
     this.children = [];
-    this.ordinal = 0;
+    this.ordinal = ordinal;
   }
 }
 
@@ -68,8 +31,30 @@ class Node {
  */
 class Tree {
   constructor(data) {
-    this.root = new Node();
-    this.buildTree(data, this.root);
+    const treeMap = this.buildTreeMap(data);
+    this.root = this.buildTree(treeMap, new Node('root'));
+  }
+
+  /**
+   * builds map of parent -> child
+   * @param {Array} data 
+   */
+  buildTreeMap(data) {
+    const map = new Map();
+
+    data.forEach((record) => {
+      const {parentId} = record;
+      const parent = parentId ?? 'root';
+
+      if (!map.has(parent)) {
+        map.set(parent, []);
+      }
+
+      const children = map.get(parent);
+      map.set(parent, [...children, record]);
+    });
+
+    return map;
   }
 
   /**
@@ -87,26 +72,21 @@ class Tree {
 	 * @param data tree data
 	 * @param root root of the tree
 	 */
-  buildTree(data, root) {
-    var i = 0;
-    if (Array.isArray(data) && !data.length) {
-      return;
-    }
-
+  buildTree(treeMap, root) {
     if (!root.children) {
       root.children = [];
     }
 
-    while (i < data.length) {
-      if (data[i].parentId === root._id) {
-        root.children.push(this.buildTree(data, data[i]));
-      }
+    const children = treeMap.get(root.id);
 
-      i++;
+    if (children && children.length) {
+      children.forEach((child) => {
+        const childNode = this.buildTree(treeMap, new Node(child._id, child.name, child.ordinal))
+        root.children.push(childNode);
+      })
     }
-    if (root.children.length) {
-      root.children.sort(this.compareNodes);
-    }
+    
+    return root;
   }
 
   /**
@@ -121,5 +101,39 @@ class Tree {
 module.exports = Tree;
 
 /*********** Usage ***********/
-// var builder = new Tree(data);
-// document.write(builder.printTree());
+var data = [
+  {
+      "name":"b1",
+      "_id":"b1_id",
+      "ordinal": 1
+   },
+   {
+      "name":"a1",
+      "_id":"a1_id",
+      "ordinal": 0
+   },
+   {
+      "name":"a2",
+      "parentId":"a1_id",
+      "_id":"a2_id",
+   },
+   {
+      "name":"a3",
+      "parentId":"a2_id",
+      "_id":"a3_id",
+   },
+   {
+      "name":"b2",
+      "parentId":"b1_id",
+      "_id":"b2_id",
+      "ordinal": 1
+   },
+   {
+      "name":"b3",
+      "parentId":"b1_id",
+      "_id":"b3_id",
+      "ordinal": 0
+   }
+];
+var builder = new Tree(data);
+document.write(builder.printTree());
